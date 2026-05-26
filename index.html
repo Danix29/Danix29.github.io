@@ -95,13 +95,13 @@ nav {
 .t-cursor { display: inline-block; width: 8px; height: 14px; background: var(--teal); vertical-align: middle; margin-left: 2px; animation: blink 1.1s step-end infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1; }
 .btn { font-family: var(--mono); font-size: 12px; padding: 10px 24px; text-decoration: none; letter-spacing: 0.08em; border-radius: 2px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
 .btn-primary { background: var(--teal); color: #0a0e0c; border: 1px solid var(--teal); font-weight: 700; }
 .btn-primary:hover { background: var(--teal-light); border-color: var(--teal-light); }
 .btn-outline { background: transparent; color: var(--teal-light); border: 1px solid var(--teal-border); }
 .btn-outline:hover { border-color: var(--teal); background: var(--teal-faint); }
-.hero-scroll { position: absolute; bottom: 2rem; left: 4rem; font-size: 10px; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 0.75rem; }
+.hero-scroll { position: absolute; bottom: 2rem; left: 4rem; font-size: 10px; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 0.75rem; pointer-events: none; }
 .hero-scroll::after { content: ''; display: block; width: 1px; height: 48px; background: linear-gradient(to bottom, var(--teal), transparent); }
 
 /* SECTIONS */
