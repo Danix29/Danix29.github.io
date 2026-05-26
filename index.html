@@ -27,7 +27,7 @@
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.7; overflow-x: hidden; }
 
-/* LANG TOGGLE — body class drives visibility */
+/* LANG TOGGLE */
 body.lang-en .es { display: none !important; }
 body.lang-es .en { display: none !important; }
 
@@ -43,13 +43,13 @@ body.lang-es .en { display: none !important; }
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 4rem; height: 56px;
+  padding: 0 3rem; height: 56px;
   background: rgba(10,14,12,0.90); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--teal-border);
 }
 .nav-logo { font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--teal-light); letter-spacing: 0.04em; text-decoration: none; }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { color: var(--text2); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { color: var(--text2); text-decoration: none; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--teal-light); }
 .nav-lang { display: flex; gap: 0.5rem; }
 .lang-btn { font-family: var(--mono); font-size: 11px; padding: 3px 10px; border: 1px solid var(--teal-border); background: transparent; color: var(--text3); cursor: pointer; border-radius: 3px; transition: all 0.2s; letter-spacing: 0.06em; }
@@ -133,13 +133,31 @@ section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
 .exp-item::before { content: ''; position: absolute; left: -4rem; top: 2rem; width: 1px; height: calc(100% - 2rem); background: linear-gradient(to bottom, var(--teal-dim), transparent); }
 .exp-date { font-size: 11px; color: var(--text3); letter-spacing: 0.06em; padding-top: 4px; }
 .exp-date .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); margin-right: 0.5rem; vertical-align: middle; }
-.exp-content {}
 .exp-role { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
 .exp-org { font-size: 12px; color: var(--teal); margin-bottom: 0.75rem; letter-spacing: 0.04em; }
 .exp-desc { font-size: 12px; color: var(--text2); line-height: 1.9; margin-bottom: 0.75rem; }
 .exp-desc .es { font-style: italic; }
 .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tag { font-size: 10px; padding: 2px 8px; border: 1px solid var(--teal-border); color: var(--text3); border-radius: 2px; letter-spacing: 0.06em; }
+
+/* EDUCATION */
+.edu-list { display: flex; flex-direction: column; gap: 0; }
+.edu-item { display: grid; grid-template-columns: 180px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--teal-border); position: relative; }
+.edu-item:last-child { border-bottom: none; }
+.edu-item::before { content: ''; position: absolute; left: -4rem; top: 2rem; width: 1px; height: calc(100% - 2rem); background: linear-gradient(to bottom, var(--teal-dim), transparent); }
+.edu-date { font-size: 11px; color: var(--text3); letter-spacing: 0.06em; padding-top: 4px; }
+.edu-date .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); margin-right: 0.5rem; vertical-align: middle; }
+.edu-content {}
+.edu-degree { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+.edu-institution { font-size: 12px; color: var(--teal); margin-bottom: 0.75rem; letter-spacing: 0.04em; }
+.edu-desc { font-size: 12px; color: var(--text2); line-height: 1.9; margin-bottom: 0.75rem; }
+.edu-desc .es { font-style: italic; }
+.edu-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+.edu-chip { font-size: 10px; padding: 3px 10px; border: 1px solid var(--teal-border); color: var(--text2); border-radius: 2px; background: var(--teal-faint); letter-spacing: 0.05em; }
+.edu-chip.current { border-color: var(--teal); color: var(--teal-light); }
+.edu-subjects { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1.5rem; margin-top: 0.5rem; }
+.edu-subject { font-size: 11px; color: var(--text3); display: flex; align-items: center; gap: 0.4rem; }
+.edu-subject::before { content: '·'; color: var(--teal); }
 
 /* STACK */
 .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--teal-border); border: 1px solid var(--teal-border); }
@@ -170,6 +188,15 @@ section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
 .proj-link { font-size: 11px; color: var(--teal); text-decoration: none; padding: 4px 10px; border: 1px solid var(--teal-border); border-radius: 2px; transition: all 0.2s; letter-spacing: 0.06em; }
 .proj-link:hover { background: var(--teal-faint); color: var(--teal-light); border-color: var(--teal); }
 
+/* INTERESTS */
+.interests-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--teal-border); border: 1px solid var(--teal-border); }
+.interest-card { background: var(--bg2); padding: 1.75rem; transition: background 0.2s; }
+.interest-card:hover { background: var(--bg3); }
+.interest-icon { font-size: 1.5rem; margin-bottom: 1rem; line-height: 1; }
+.interest-name { font-family: var(--sans); font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+.interest-desc { font-size: 12px; color: var(--text2); line-height: 1.8; }
+.interest-desc .es { font-style: italic; }
+
 /* CONTACT */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 .contact-text p { color: var(--text2); font-size: 13px; line-height: 1.9; margin-bottom: 1rem; }
@@ -182,6 +209,12 @@ section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
 .contact-link-val { font-size: 12px; color: var(--teal-light); }
 .contact-link-arrow { color: var(--text3); font-size: 12px; transition: transform 0.2s; }
 .contact-link:hover .contact-link-arrow { transform: translateX(4px); color: var(--teal); }
+
+/* CALLOUT */
+.callout { border: 1px solid var(--teal-border); background: var(--bg2); border-left: 3px solid var(--teal); padding: 1.25rem 1.5rem; margin-top: 2rem; border-radius: 0 2px 2px 0; }
+.callout-label { font-size: 10px; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.callout-text { font-size: 12px; color: var(--text2); line-height: 1.8; }
+.callout-text .es { font-style: italic; }
 
 /* FOOTER */
 footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
@@ -198,10 +231,10 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
   .nav-links { display: none; }
   #hero, section { padding: 5rem 1.5rem 3rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
-  .proj-grid { grid-template-columns: 1fr; }
+  .proj-grid, .interests-grid { grid-template-columns: 1fr; }
   .stack-grid { grid-template-columns: 1fr; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-  .exp-item::before { display: none; }
+  .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .exp-item::before, .edu-item::before { display: none; }
   footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
 }
 </style>
@@ -215,8 +248,10 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
   <ul class="nav-links">
     <li><a href="#about"><span class="en">About</span><span class="es">Sobre mí</span></a></li>
     <li><a href="#experience"><span class="en">Experience</span><span class="es">Experiencia</span></a></li>
+    <li><a href="#education"><span class="en">Education</span><span class="es">Formación</span></a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#projects"><span class="en">Projects</span><span class="es">Proyectos</span></a></li>
+    <li><a href="#interests"><span class="en">Interests</span><span class="es">Intereses</span></a></li>
     <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
   </ul>
   <div class="nav-lang">
@@ -281,8 +316,8 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
     <div class="about-text">
       <p class="en">Computer Engineering student at Universidad de Alcalá combining academic studies with over 2 years of active professional experience in high-responsibility environments. I work simultaneously as a Security, Lifesaving and Risk Management Specialist at Base Aérea de Torrejón and as a Swimming Instructor at Humanitas Bilingual School.</p>
       <p class="es">Estudiante de Ingeniería Informática en la UAH que combina los estudios con más de 2 años de experiencia profesional activa en entornos de alta responsabilidad. Trabajo simultáneamente como Especialista en Seguridad y Salvamento en la Base Aérea de Torrejón e Instructor de Natación en Humanitas.</p>
-      <p class="en">Technically focused on concurrent and distributed systems (Java RMI, POSIX threads), advanced databases (PostgreSQL, Oracle, RBAC, physical indexing) and algorithms (Dynamic Programming, Backtracking, Branch and Bound). My analytical methodology is grounded in a background in Astrophysics.</p>
-      <p class="es">Técnicamente especializado en sistemas concurrentes y distribuidos (Java RMI, POSIX threads), bases de datos avanzadas (PostgreSQL, Oracle, RBAC, indexación física) y algoritmia (Programación Dinámica, Backtracking, Branch and Bound). Base analítica en Astrofísica.</p>
+      <p class="en">Technically focused on concurrent and distributed systems (Java RMI, POSIX threads), advanced databases (PostgreSQL, Oracle, RBAC, physical indexing) and algorithms (Dynamic Programming, Backtracking, Branch and Bound). Analytical foundation rooted in science education with a strong interest in astrophysics and physics.</p>
+      <p class="es">Técnicamente especializado en sistemas concurrentes y distribuidos (Java RMI, POSIX threads), bases de datos avanzadas (PostgreSQL, Oracle, RBAC, indexación física) y algoritmia (Programación Dinámica, Backtracking, Branch and Bound). Base analítica en ciencias con fuerte interés en astrofísica y física.</p>
     </div>
     <div>
       <div class="about-stats">
@@ -322,7 +357,7 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
         <div class="exp-org">Base Aérea de Torrejón · Humanitas Bilingual School</div>
         <div class="exp-desc">
           <span class="en">Execution of advanced security protocols and emergency procedures in military and school facilities. Team coordination, access control, user flow management and systematic incident documentation. Preventive risk assessment and infrastructure monitoring. Bilingual environment (ES/EN) with international military staff.</span>
-          <span class="es">Ejecución de protocolos avanzados de seguridad y procedimientos de emergencia en instalaciones militares y escolares. Coordinación de equipos, control de accesos y documentación sistemática de incidencias. Análisis preventivo de riesgos y monitorización de infraestructura. Entorno bilingüe (ES/EN).</span>
+          <span class="es">Ejecución de protocolos avanzados de seguridad y procedimientos de emergencia en instalaciones militares y escolares. Coordinación de equipos, control de accesos y documentación sistemática de incidencias. Análisis preventivo de riesgos y monitorización de infraestructura. Entorno bilingüe con personal militar internacional.</span>
         </div>
         <div class="exp-tags">
           <span class="tag">Emergency protocols</span>
@@ -351,13 +386,13 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
       </div>
     </div>
     <div class="exp-item fade-in">
-      <div class="exp-date"><span class="dot"></span>Aug 2024 — Present</div>
+      <div class="exp-date"><span class="dot"></span>Sep 2024 — Present</div>
       <div class="exp-content">
         <div class="exp-role"><span class="en">B.S. Computer Engineering Student</span><span class="es">Estudiante de Grado en Ingeniería Informática</span></div>
         <div class="exp-org">Universidad de Alcalá de Henares — GII</div>
         <div class="exp-desc">
-          <span class="en">2024–26: Advanced Programming (Java RMI, concurrency), OS (POSIX), Databases I &amp; Advanced (Oracle, PostgreSQL), Software Engineering (UML/IEEE 830), Algorithms &amp; Complexity (DP/B&amp;B), Data Structures, Computer Architecture. 2026–27: Advanced SE, AI/ML, Advanced OS, Project Management, Enterprise IS.</span>
-          <span class="es">2024–26: Programación Avanzada (Java RMI, concurrencia), SO (POSIX), Bases de Datos I y Avanzadas (Oracle, PostgreSQL), Ingeniería del Software (UML/IEEE 830), Algoritmia y Complejidad, Estructuras de Datos, Arquitectura. 2026–27: ISA, IA, SOA, Gestión de Proyectos, Sistemas Empresariales.</span>
+          <span class="en">2024–26: Advanced Programming (Java RMI, concurrency), OS (POSIX), Databases I &amp; Advanced (Oracle, PostgreSQL), Software Engineering (UML/IEEE 830), Algorithms &amp; Complexity (DP/B&amp;B), Data Structures, Computer Architecture. 2026–27 (current): Advanced SE, Artificial Intelligence/ML, Advanced OS, Project Management, Enterprise IS.</span>
+          <span class="es">2024–26: Programación Avanzada (Java RMI, concurrencia), SO (POSIX), Bases de Datos I y Avanzadas (Oracle, PostgreSQL), Ingeniería del Software (UML/IEEE 830), Algoritmia y Complejidad, Estructuras de Datos, Arquitectura. 2026–27 (actual): ISA, IA/ML, SOA, Gestión de Proyectos, Sistemas Empresariales.</span>
         </div>
         <div class="exp-tags">
           <span class="tag">Java RMI</span>
@@ -373,10 +408,112 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="sec-header fade-in">
+    <span class="sec-num">03</span>
+    <h2 class="sec-title"><span class="en">Education</span><span class="es">Formación</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="edu-list">
+
+    <div class="edu-item fade-in">
+      <div class="edu-date"><span class="dot"></span>2024 — 2028</div>
+      <div class="edu-content">
+        <div class="edu-degree"><span class="en">B.S. Computer Engineering (GII)</span><span class="es">Grado en Ingeniería Informática (GII)</span></div>
+        <div class="edu-institution">Universidad de Alcalá de Henares · Escuela Politécnica Superior</div>
+        <div class="edu-chips">
+          <span class="edu-chip current">● <span class="en">In progress — Year 3</span><span class="es">En curso — 3er año</span></span>
+          <span class="edu-chip">180 ECTS</span>
+          <span class="edu-chip">GPA track: Systems &amp; Databases</span>
+        </div>
+        <div class="edu-desc">
+          <span class="en">Four-year degree at UAH's School of Engineering covering the full computer science curriculum. Specialising naturally in systems programming, concurrent computing and database engineering through project-intensive coursework.</span>
+          <span class="es">Grado de cuatro años en la Escuela Politécnica Superior de la UAH. Especialización natural en programación de sistemas, computación concurrente e ingeniería de bases de datos a través de prácticas intensivas.</span>
+        </div>
+        <div class="edu-subjects">
+          <span class="edu-subject">Programación Avanzada</span>
+          <span class="edu-subject">Bases de Datos I &amp; Avanzadas</span>
+          <span class="edu-subject">Sistemas Operativos + Avanzados</span>
+          <span class="edu-subject">Algoritmia y Complejidad</span>
+          <span class="edu-subject">Ingeniería del Software</span>
+          <span class="edu-subject">Inteligencia Artificial</span>
+          <span class="edu-subject">Arquitectura de Computadores</span>
+          <span class="edu-subject">Gestión de Proyectos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item fade-in">
+      <div class="edu-date"><span class="dot"></span>2022 — 2024</div>
+      <div class="edu-content">
+        <div class="edu-degree"><span class="en">Bachillerato — Science Track</span><span class="es">Bachillerato — Modalidad Ciencias</span></div>
+        <div class="edu-institution">Madrid · <span class="en">Science and Technology pathway</span><span class="es">Itinerario Ciencias y Tecnología</span></div>
+        <div class="edu-chips">
+          <span class="edu-chip"><span class="en">Completed</span><span class="es">Completado</span></span>
+          <span class="edu-chip">PAU / Selectividad</span>
+        </div>
+        <div class="edu-desc">
+          <span class="en">Science pathway with emphasis on Physics, Mathematics II and Chemistry. Selective University Access Examination (PAU) passed with a focus on STEM subjects. Preparation for competitive university admission.</span>
+          <span class="es">Modalidad Ciencias con énfasis en Física, Matemáticas II y Química. Superación de la PAU (Selectividad) con enfoque STEM. Preparación para acceso a estudios universitarios de ingeniería.</span>
+        </div>
+        <div class="edu-subjects">
+          <span class="edu-subject">Física</span>
+          <span class="edu-subject">Matemáticas II</span>
+          <span class="edu-subject">Química</span>
+          <span class="edu-subject">Tecnología Industrial</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item fade-in">
+      <div class="edu-date"><span class="dot"></span>2018 — 2022</div>
+      <div class="edu-content">
+        <div class="edu-degree"><span class="en">Secondary Education (ESO) — Extended Sciences</span><span class="es">Educación Secundaria Obligatoria — Ampliación Científica</span></div>
+        <div class="edu-institution">Madrid · <span class="en">Science electives programme</span><span class="es">Programa de ampliación de Ciencias</span></div>
+        <div class="edu-chips">
+          <span class="edu-chip"><span class="en">Completed</span><span class="es">Completado</span></span>
+          <span class="edu-chip">Astrophysics electives</span>
+        </div>
+        <div class="edu-desc">
+          <span class="en">Completed ESO with additional coursework in astronomy and astrophysics. The pre-university science programme sparked an enduring interest in cosmology, celestial mechanics and the physics of large-scale structures — an analytical foundation that informs my approach to complex systems today.</span>
+          <span class="es">ESO con ampliación en astronomía y astrofísica. El programa preuniversitario de ciencias despertó un interés duradero en cosmología, mecánica celeste y física de grandes estructuras — base analítica que influye en mi enfoque de sistemas complejos hoy.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item fade-in">
+      <div class="edu-date"><span class="dot"></span>2023</div>
+      <div class="edu-content">
+        <div class="edu-degree"><span class="en">English Language Certificate — B2+</span><span class="es">Certificado de Inglés — B2+</span></div>
+        <div class="edu-institution"><span class="en">Official Language School (EOI) · Madrid</span><span class="es">Escuela Oficial de Idiomas (EOI) · Madrid</span></div>
+        <div class="edu-chips">
+          <span class="edu-chip"><span class="en">Certified</span><span class="es">Certificado</span></span>
+          <span class="edu-chip">CEFR B2+</span>
+          <span class="edu-chip"><span class="en">Active professional use</span><span class="es">Uso profesional activo</span></span>
+        </div>
+        <div class="edu-desc">
+          <span class="en">Certified B2+ level, in active use daily through professional environment at Base Aérea de Torrejón (international military staff, NATO documentation) and all technical documentation, academic papers and code comments written in English.</span>
+          <span class="es">Nivel B2+ certificado, en uso activo diario en la Base Aérea de Torrejón (personal militar internacional, documentación OTAN) y toda la documentación técnica, papers académicos y comentarios de código escritos en inglés.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout fade-in">
+    <div class="callout-label"><span class="en">Currently in semester</span><span class="es">Actualmente en cuatrimestre</span></div>
+    <div class="callout-text">
+      <span class="en">2026–27 Q2 · Sistemas Empresariales · Gestión de Proyectos (PMBOK, PERT, EVM) · Advanced SE (CMMI, design patterns) · AI/ML (supervised, unsupervised, neural networks) · Advanced OS (virtual memory, file systems, I/O)</span>
+      <span class="es">2026–27 Q2 · Sistemas Empresariales · Gestión de Proyectos (PMBOK, PERT, EVM) · ISA (CMMI, patrones de diseño) · IA/ML (supervisado, no supervisado, redes neuronales) · SOA (memoria virtual, sistemas de ficheros, E/S)</span>
+    </div>
+  </div>
+</section>
+
 <!-- STACK -->
 <section id="stack">
   <div class="sec-header fade-in">
-    <span class="sec-num">03</span>
+    <span class="sec-num">04</span>
     <h2 class="sec-title">Stack</h2>
     <div class="sec-line"></div>
   </div>
@@ -420,7 +557,7 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="sec-header fade-in">
-    <span class="sec-num">04</span>
+    <span class="sec-num">05</span>
     <h2 class="sec-title"><span class="en">Projects</span><span class="es">Proyectos</span></h2>
     <div class="sec-line"></div>
   </div>
@@ -537,10 +674,76 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
   </div>
 </section>
 
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="sec-header fade-in">
+    <span class="sec-num">06</span>
+    <h2 class="sec-title"><span class="en">Interests</span><span class="es">Intereses</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="interests-grid fade-in">
+
+    <div class="interest-card">
+      <div class="interest-icon">🏊</div>
+      <div class="interest-name"><span class="en">Aquatic Sports &amp; Lifesaving</span><span class="es">Deportes Acuáticos y Salvamento</span></div>
+      <div class="interest-desc">
+        <span class="en">Competitive swimmer since early secondary school. Holds lifesaving certification applied professionally at Base Aérea. Currently teaching swimming at Humanitas — combining physical discipline with safety-critical technical knowledge.</span>
+        <span class="es">Nadador desde secundaria. Certificación de salvamento aplicada profesionalmente en la Base Aérea. Actualmente enseñando natación en Humanitas — combinando disciplina física con conocimiento técnico de seguridad crítica.</span>
+      </div>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">🔭</div>
+      <div class="interest-name"><span class="en">Astrophysics &amp; Space Sciences</span><span class="es">Astrofísica y Ciencias del Espacio</span></div>
+      <div class="interest-desc">
+        <span class="en">Pre-university extended coursework in astrophysics during ESO sparked an ongoing interest in cosmology, stellar evolution and the physics of large-scale structures. The mathematical rigour of orbital mechanics and space physics directly shapes how I model complex systems in software.</span>
+        <span class="es">Los cursos de astrofísica durante la ESO generaron un interés continuo en cosmología, evolución estelar y física de grandes estructuras. El rigor matemático de la mecánica orbital influye directamente en cómo modelo sistemas complejos en software.</span>
+      </div>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">⚙️</div>
+      <div class="interest-name"><span class="en">System Internals &amp; Low-Level Engineering</span><span class="es">Internos del Sistema e Ingeniería de Bajo Nivel</span></div>
+      <div class="interest-desc">
+        <span class="en">Genuine interest in how hardware and OS interact — memory management, scheduling, I/O subsystems and file systems. Reading beyond coursework: OS internals texts, kernel documentation and performance analysis papers. Motivated by the intellectual challenge of systems that have no abstraction to hide behind.</span>
+        <span class="es">Interés genuino en cómo hardware y SO interactúan — gestión de memoria, planificación, subsistemas E/S y ficheros. Lectura más allá del currículo: documentación del kernel y papers de análisis de rendimiento. Motivado por el reto intelectual de sistemas sin abstracciones que oculten la complejidad.</span>
+      </div>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">🛡️</div>
+      <div class="interest-name"><span class="en">Security &amp; Emergency Management</span><span class="es">Seguridad y Gestión de Emergencias</span></div>
+      <div class="interest-desc">
+        <span class="en">Professional background in physical security and risk management at a NATO air base informs a systematic, protocol-driven mindset. Interest in how the same principles — threat modelling, access control, incident response — apply directly to cybersecurity and software systems.</span>
+        <span class="es">La experiencia en seguridad física y gestión de riesgos en una base aérea OTAN informa un pensamiento sistemático orientado a protocolos. Interés en cómo los mismos principios — modelado de amenazas, control de acceso, respuesta a incidentes — se aplican directamente a la ciberseguridad.</span>
+      </div>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">📐</div>
+      <div class="interest-name"><span class="en">Algorithms &amp; Mathematical Thinking</span><span class="es">Algoritmia y Pensamiento Matemático</span></div>
+      <div class="interest-desc">
+        <span class="en">Fascination with the formal analysis of algorithms — asymptotic complexity, combinatorial optimisation and the boundary between tractable and intractable problems. Working through TSP variants and multi-constraint knapsack problems is where theory meets real engineering trade-offs.</span>
+        <span class="es">Fascinación por el análisis formal de algoritmos — complejidad asintótica, optimización combinatoria y la frontera entre problemas tratables e intratables. Trabajar con variantes del TSP y mochilas multi-restricción es donde la teoría se encuentra con las decisiones reales de ingeniería.</span>
+      </div>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-icon">🌐</div>
+      <div class="interest-name"><span class="en">Open Source &amp; Portfolio Building</span><span class="es">Open Source y Construcción de Portfolio</span></div>
+      <div class="interest-desc">
+        <span class="en">Committed to maintaining a documented, well-structured public GitHub portfolio that reflects real academic and professional work. Interested in open source contribution, clean repository practices and the craft of technical writing — turning coursework into readable, reusable artefacts.</span>
+        <span class="es">Comprometido con mantener un portfolio público documentado y bien estructurado en GitHub que refleje trabajo académico y profesional real. Interesado en contribución open source, buenas prácticas de repositorios y la escritura técnica — convirtiendo el trabajo académico en artefactos legibles y reutilizables.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="sec-header fade-in">
-    <span class="sec-num">05</span>
+    <span class="sec-num">07</span>
     <h2 class="sec-title"><span class="en">Contact</span><span class="es">Contacto</span></h2>
     <div class="sec-line"></div>
   </div>
@@ -558,6 +761,11 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
       <a href="https://github.com/Danix29" target="_blank" class="contact-link">
         <span class="contact-link-label">GitHub</span>
         <span class="contact-link-val">github.com/Danix29</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/danieldnb/" target="_blank" class="contact-link">
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-val">linkedin.com/in/danieldnb</span>
         <span class="contact-link-arrow">→</span>
       </a>
       <a href="https://github.com/Danix29/Resume/raw/main/CV_English_Daniel_Del_Nogal.pdf" class="contact-link" download>
@@ -586,7 +794,7 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
 </footer>
 
 <script>
-// LANG TOGGLE — drives body class; CSS selectors do the rest
+// LANG TOGGLE
 function setLang(lang) {
   document.body.className = 'lang-' + lang;
   document.querySelectorAll('.lang-btn').forEach(b => {
