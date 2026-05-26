@@ -7,6 +7,16 @@
 <title>Daniel Del Nogal Buchanan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<meta property="og:title" content="Daniel Del Nogal Buchanan — Computer Engineering @ UAH"/>
+<meta property="og:description" content="Concurrent systems · Advanced databases · Algorithms · 2+ years professional experience in high-responsibility environments."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://danix29.github.io"/>
+<meta property="og:image" content="https://capsule-render.vercel.app/api?type=waving&color=1D9E75&height=400&section=header&text=Daniel%20Del%20Nogal%20Buchanan&fontSize=36&fontColor=FFFFFF&fontAlignY=45&desc=B.S.%20Computer%20Engineering%20%40%20UAH&descAlignY=65&descColor=9FE1CB"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Daniel Del Nogal Buchanan — Computer Engineering @ UAH"/>
+<meta name="twitter:description" content="Concurrent systems · Advanced databases · Algorithms"/>
+<meta name="twitter:image" content="https://capsule-render.vercel.app/api?type=waving&color=1D9E75&height=400&section=header&text=Daniel%20Del%20Nogal%20Buchanan&fontSize=36&fontColor=FFFFFF&fontAlignY=45&desc=B.S.%20Computer%20Engineering%20%40%20UAH&descAlignY=65&descColor=9FE1CB"/>
 <style>
 :root {
   --bg: #0a0e0c;
@@ -225,10 +235,31 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+/* HAMBURGER */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: transparent; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--teal-light); border-radius: 1px; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* MOBILE NAV */
+.mobile-nav { display: none; position: fixed; top: 56px; left: 0; right: 0; background: rgba(10,14,12,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--teal-border); z-index: 99; padding: 1.5rem 2rem; }
+.mobile-nav.open { display: block; }
+.mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
+.mobile-nav a { color: var(--text2); text-decoration: none; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; display: block; padding: 0.25rem 0; }
+.mobile-nav a:hover { color: var(--teal-light); }
+.mobile-nav .mobile-lang { display: flex; gap: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--teal-border); margin-top: 0.5rem; }
+
+/* SCROLL TO TOP */
+#scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 38px; height: 38px; background: var(--bg2); border: 1px solid var(--teal-border); color: var(--teal); font-size: 16px; cursor: pointer; border-radius: 2px; display: none; align-items: center; justify-content: center; z-index: 50; transition: all 0.2s; font-family: var(--mono); }
+#scroll-top:hover { background: var(--teal); color: #0a0e0c; border-color: var(--teal); }
+#scroll-top.visible { display: flex; }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 0 1.5rem; }
   .nav-links { display: none; }
+  .hamburger { display: flex; }
   #hero, section { padding: 5rem 1.5rem 3rem; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .proj-grid, .interests-grid { grid-template-columns: 1fr; }
@@ -236,6 +267,7 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
   .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
   .exp-item::before, .edu-item::before { display: none; }
   footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  #scroll-top { bottom: 1.5rem; right: 1.5rem; }
 }
 </style>
 </head>
@@ -258,7 +290,27 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
     <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
     <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <ul>
+    <li><a href="#about" onclick="closeMenu()"><span class="en">About</span><span class="es">Sobre mí</span></a></li>
+    <li><a href="#experience" onclick="closeMenu()"><span class="en">Experience</span><span class="es">Experiencia</span></a></li>
+    <li><a href="#education" onclick="closeMenu()"><span class="en">Education</span><span class="es">Formación</span></a></li>
+    <li><a href="#stack" onclick="closeMenu()">Stack</a></li>
+    <li><a href="#projects" onclick="closeMenu()"><span class="en">Projects</span><span class="es">Proyectos</span></a></li>
+    <li><a href="#interests" onclick="closeMenu()"><span class="en">Interests</span><span class="es">Intereses</span></a></li>
+    <li><a href="#contact" onclick="closeMenu()"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
+    <li class="mobile-lang">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en');closeMenu()">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es');closeMenu()">ES</button>
+    </li>
+  </ul>
+</div>
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <!-- HERO -->
 <section id="hero" style="max-width:100%;padding-top:6rem">
@@ -729,11 +781,11 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
     </div>
 
     <div class="interest-card">
-      <div class="interest-icon">🌐</div>
-      <div class="interest-name"><span class="en">Open Source &amp; Portfolio Building</span><span class="es">Open Source y Construcción de Portfolio</span></div>
+      <div class="interest-icon">🚐</div>
+      <div class="interest-name"><span class="en">Road Trips &amp; Van Life</span><span class="es">Rutas en Furgoneta</span></div>
       <div class="interest-desc">
-        <span class="en">Committed to maintaining a documented, well-structured public GitHub portfolio that reflects real academic and professional work. Interested in open source contribution, clean repository practices and the craft of technical writing — turning coursework into readable, reusable artefacts.</span>
-        <span class="es">Comprometido con mantener un portfolio público documentado y bien estructurado en GitHub que refleje trabajo académico y profesional real. Interesado en contribución open source, buenas prácticas de repositorios y la escritura técnica — convirtiendo el trabajo académico en artefactos legibles y reutilizables.</span>
+        <span class="en">Avid traveller across Spain by camper van. Long-distance road trips — planning routes, navigating offline maps and the discipline of living from the road. Finding perspective outside cities that feeds directly into focused, patient problem-solving at the keyboard.</span>
+        <span class="es">Viajero habitual por España en furgoneta camper. Rutas de larga distancia — planificación de itinerarios, navegación offline y la disciplina de vivir desde la carretera. Encontrar perspectiva fuera de las ciudades que alimenta directamente la concentración y resolución de problemas.</span>
       </div>
     </div>
 
@@ -802,11 +854,25 @@ function setLang(lang) {
   });
 }
 
-// SCROLL PROGRESS BAR
+// MOBILE MENU
+function toggleMenu() {
+  const h = document.getElementById('hamburger');
+  const m = document.getElementById('mobile-nav');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobile-nav').classList.remove('open');
+}
+
+// SCROLL PROGRESS BAR + SCROLL TO TOP
 const prog = document.getElementById('progress');
+const scrollTop = document.getElementById('scroll-top');
 window.addEventListener('scroll', () => {
   const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
   prog.style.width = pct + '%';
+  scrollTop.classList.toggle('visible', window.scrollY > 400);
 }, { passive: true });
 
 // FADE IN
