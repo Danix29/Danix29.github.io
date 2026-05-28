@@ -533,3 +533,211 @@ p{
         text-align: center;
     }
 }
+
+
+/* =============================================
+   SBI — Interactive UI Enhancements
+   Pairs with interactions.js
+   ============================================= */
+
+/* ── Scroll Progress Bar ─────────────────────── */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, rgb(201, 97, 5), rgb(184, 166, 110));
+    z-index: 10000;
+    transition: width 0.1s linear;
+    pointer-events: none;
+}
+
+/* ── Custom Cursor Glow ──────────────────────── */
+#cursor-glow {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 97, 5, 0.38) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    will-change: left, top;
+}
+
+#cursor-glow.cursor-big {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(201, 97, 5, 0.22) 0%, transparent 70%);
+}
+
+/* ── Back-to-Top Button ──────────────────────── */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgb(201, 97, 5);
+    color: #fff;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, box-shadow 0.2s ease;
+    z-index: 9000;
+    box-shadow: 0 4px 15px rgba(201, 97, 5, 0.4);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background: rgb(250, 99, 94);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(250, 99, 94, 0.5);
+}
+
+/* ── Scroll Reveal — sections ────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Cards inside a reveal section start hidden and stagger in */
+.reveal .coffee-1,
+.reveal .blog-1 {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.reveal .coffee-1.visible,
+.reveal .blog-1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal .services-1 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.reveal .services-1.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Enhanced Coffee / Exercise Cards ───────── */
+.coffee-1 {
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    will-change: transform;
+}
+
+.coffee-1:hover {
+    box-shadow: 0 12px 35px rgba(201, 97, 5, 0.18);
+}
+
+.coffee-1 img {
+    transition: transform 0.4s ease;
+}
+
+.coffee-1:hover img {
+    transform: scale(1.07);
+}
+
+/* ── Services Cards ──────────────────────────── */
+.services-1 {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.services-1:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(184, 166, 110, 0.45);
+    transform: translateY(-5px);
+}
+
+/* ── Blog / Team Cards ───────────────────────── */
+.blog-1 {
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+    will-change: transform;
+    transition: box-shadow 0.3s ease;
+}
+
+.blog-1:hover {
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+}
+
+.blog-1 img {
+    transition: transform 0.4s ease;
+}
+
+.blog-1:hover img {
+    transform: scale(1.06);
+}
+
+/* ── Improved CTA Button ─────────────────────── */
+.btn-1 {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgb(201, 97, 5);
+    border-radius: 30px;
+    transition: background 0.3s ease, color 0.3s ease,
+                transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-1:hover {
+    background: rgb(201, 97, 5);
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201, 97, 5, 0.38);
+}
+
+/* Ripple effect on click */
+.btn-1 .ripple {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    transform: scale(0);
+    animation: ripple-anim 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-anim {
+    to {
+        transform: scale(130);
+        opacity: 0;
+    }
+}
+
+/* ── Nav Active Highlight ────────────────────── */
+.navbar a.nav-active {
+    color: rgb(184, 166, 110) !important;
+    border-bottom: 2px solid rgb(184, 166, 110);
+}
