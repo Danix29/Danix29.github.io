@@ -608,39 +608,41 @@ p{
 }
 
 /* ── Scroll Reveal — sections ────────────────── */
-.reveal {
+/* Only hide when JS has loaded (.js class added by interactions.js).
+   Without JS, sections stay fully visible (progressive enhancement). */
+.js .reveal {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.visible {
+.js .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* Cards inside a reveal section start hidden and stagger in */
-.reveal .coffee-1,
-.reveal .blog-1 {
+.js .reveal .coffee-1,
+.js .reveal .blog-1 {
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
 }
 
-.reveal .coffee-1.visible,
-.reveal .blog-1.visible {
+.js .reveal .coffee-1.visible,
+.js .reveal .blog-1.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.reveal .services-1 {
+.js .reveal .services-1 {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease,
                 border-color 0.3s ease;
 }
 
-.reveal .services-1.visible {
+.js .reveal .services-1.visible {
     opacity: 1;
     transform: translateY(0);
 }

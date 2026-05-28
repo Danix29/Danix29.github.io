@@ -3,6 +3,9 @@
    Mouse effects · Scroll animations · UI polish
    ============================================= */
 
+// Mark document as JS-enabled so CSS can safely hide .reveal sections
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 1. CUSTOM CURSOR GLOW ─────────────────────── */
