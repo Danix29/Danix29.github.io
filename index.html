@@ -255,6 +255,31 @@ footer { border-top: 1px solid var(--teal-border); padding: 2rem 4rem; display: 
 #scroll-top:hover { background: var(--teal); color: #0a0e0c; border-color: var(--teal); }
 #scroll-top.visible { display: flex; }
 
+/* CURSOR GLOW */
+#cursor-glow {
+  position: fixed; width: 40px; height: 40px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(29,158,117,0.32) 0%, transparent 70%);
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  will-change: left, top;
+}
+#cursor-glow.cursor-big {
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, rgba(29,158,117,0.16) 0%, transparent 70%);
+}
+
+/* 3D CARD TILT */
+.proj-card, .interest-card { will-change: transform; }
+
+/* BUTTON RIPPLE */
+.btn .ripple {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(255,255,255,0.45); transform: scale(0);
+  animation: ripple-anim 0.6s linear; pointer-events: none;
+}
+@keyframes ripple-anim { to { transform: scale(140); opacity: 0; } }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 0 1.5rem; }
@@ -884,6 +909,47 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// CURSOR GLOW
+(function() {
+  const glow = document.createElement('div');
+  glow.id = 'cursor-glow';
+  document.body.appendChild(glow);
+  let mx = -200, my = -200, gx = -200, gy = -200;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function loop() {
+    gx += (mx - gx) * 0.12; gy += (my - gy) * 0.12;
+    glow.style.left = gx + 'px'; glow.style.top = gy + 'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a, button, .proj-card, .interest-card').forEach(el => {
+    el.addEventListener('mouseenter', () => glow.classList.add('cursor-big'));
+    el.addEventListener('mouseleave', () => glow.classList.remove('cursor-big'));
+  });
+})();
+
+// 3D CARD TILT
+document.querySelectorAll('.proj-card, .interest-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const rotX = ((e.clientY - r.top  - r.height / 2) / (r.height / 2)) * -6;
+    const rotY = ((e.clientX - r.left - r.width  / 2) / (r.width  / 2)) *  6;
+    card.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px) scale(1.02)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+// RIPPLE on CTA buttons
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const r = document.createElement('span');
+    r.className = 'ripple';
+    r.style.cssText = `left:${e.clientX - rect.left}px;top:${e.clientY - rect.top}px`;
+    this.appendChild(r);
+    r.addEventListener('animationend', () => r.remove());
+  });
+});
 
 // NAV ACTIVE STATE
 const sections = document.querySelectorAll('section[id]');
