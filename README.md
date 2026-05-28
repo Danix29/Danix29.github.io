@@ -91,6 +91,19 @@ Danix29.github.io/
 
 ---
 
+## Personal projects
+
+Side projects outside of university coursework, hosted in separate repositories.
+
+| Project | Description | Status |
+|---|---|---|
+| [proyecto-personal](https://github.com/Danix29/proyecto-personal) | SBI English Learning Platform — static web built before university to help classmates host their high-school English project. HTML · CSS · Vanilla JS. | ✅ Live |
+| algo-visualizer | Step-by-step visual tracer for sorting and graph algorithms. Planned: bubble / merge / quick sort, BFS/DFS, rendered on canvas. | 🚧 In progress |
+| c-utils | Small collection of utility programs written in C — file stats, string tools, basic data structures. Practice ground for low-level work outside of coursework. | 🚧 In progress |
+| db-bench | PostgreSQL benchmark scripts and index analysis notebooks from personal experimentation. B-Tree vs Hash, partition strategies, EXPLAIN ANALYZE output comparison. | 🚧 In progress |
+
+---
+
 ## Meta / SEO
 
 - `<meta name="description">` for search engines.
