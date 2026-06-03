@@ -141,6 +141,19 @@ python -m http.server 8080
 
 ---
 
+## Analytics
+
+Two analytics tools run in the `<head>` to track visitors without breaking the no-framework philosophy.
+
+| Tool | What it tracks | Dashboard |
+|---|---|---|
+| [GoatCounter](https://www.goatcounter.com) | Page views, unique visitors, country, browser, OS, referrer (LinkedIn, GitHub, Google…) — no cookies, GDPR-friendly | [danieldelnogal.goatcounter.com](https://danieldelnogal.goatcounter.com) |
+| [Microsoft Clarity](https://clarity.microsoft.com) | Session recordings, heatmaps, scroll depth, click maps — shows exactly how visitors interact with the page | [clarity.microsoft.com/projects/view/x1dwcj8eau](https://clarity.microsoft.com/projects/view/x1dwcj8eau) |
+
+Both scripts load asynchronously and have no impact on page performance.
+
+---
+
 ## Deployment
 
 Pushes to `main` deploy automatically via GitHub Pages. No CI/CD configuration needed — GitHub detects the repo name pattern `<username>.github.io` and serves it automatically.
