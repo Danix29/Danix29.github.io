@@ -148,7 +148,7 @@ Two analytics tools run in the `<head>` to track visitors without breaking the n
 | Tool | What it tracks | Dashboard |
 |---|---|---|
 | [GoatCounter](https://www.goatcounter.com) | Page views, unique visitors, country, browser, OS, referrer (LinkedIn, GitHub, Google…) — no cookies, GDPR-friendly | [danieldelnogal.goatcounter.com](https://danieldelnogal.goatcounter.com) |
-| [Microsoft Clarity](https://clarity.microsoft.com) | Session recordings, heatmaps, scroll depth, click maps — shows exactly how visitors interact with the page | [clarity.microsoft.com/projects/view/x1dwcj8eau](https://clarity.microsoft.com/projects/view/x1dwcj8eau) |
+| [Microsoft Clarity](https://clarity.microsoft.com) | Session recordings, heatmaps, scroll depth, click maps — shows exactly how visitors interact with the page | [clarity.microsoft.com/projects/view/x1daajnt6w](https://clarity.microsoft.com/projects/view/x1daajnt6w) |
 
 Both scripts load asynchronously and have no impact on page performance.
 
