@@ -73,8 +73,18 @@ All vanilla JS, isolated in one IIFE inside the inline `<script>`.
 Danix29.github.io/
 ├── index.html   ← entire site (HTML + CSS + JS)
 ├── favicon.svg  ← black/white "DN" plate with a red band
+├── skins/       ← nine design-skill variants + gallery
 └── README.md
 ```
+
+---
+
+## Design-skill variants → [/skins](https://danix29.github.io/skins/)
+
+The same portfolio content rendered nine times, each following a different design skill
+(taste-skill, taste-skill-v1, gpt-tasteskill, soft-skill, minimalist-skill, brutalist-skill,
+stitch-skill + its `DESIGN.md`, apple-design, emil-design-eng). The brutalist one is this site.
+They are generated from a single content file, carry no analytics and are marked `noindex`.
 
 ---
 
