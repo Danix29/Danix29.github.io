@@ -1,6 +1,6 @@
 # danix29.github.io
 
-Personal portfolio site for **Daniel Del Nogal Buchanan** — Computer Engineering student at Universidad de Alcalá.
+Personal portfolio site for **Daniel Del Nogal Buchanan**, Computer Engineering student at Universidad de Alcalá (Year 3).
 
 Live at → [danix29.github.io](https://danix29.github.io)
 
@@ -12,20 +12,25 @@ Live at → [danix29.github.io](https://danix29.github.io)
 |---|---|---|
 | HTML | Single `index.html` | Zero build step, zero dependencies |
 | CSS | Inline `<style>` block | Self-contained, no external stylesheet to cache-bust |
-| JS | Inline `<script>` block | Same — one file is the whole site |
-| Fonts | Google Fonts (JetBrains Mono + Syne) | Preconnect link, only two weights each |
-| Hosting | GitHub Pages | Free, fast, custom domain ready |
+| JS | Inline `<script>` block | Same: one file is the whole site |
+| Fonts | Google Fonts (Archivo + JetBrains Mono) | Preconnect, `display=swap` |
+| Hosting | GitHub Pages | Free, fast, deploys on push |
 
 No frameworks. No bundler. No npm. The entire site is **one HTML file + one SVG favicon**.
 
 ---
 
-## Design
+## Design — Industrial brutalism / tactical telemetry
 
-- **Color scheme:** dark green-black (`#0a0e0c`) base with a single teal accent (`#1D9E75`). All other colors are tints and shades of that one hue.
-- **Typography:** [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for body / code feel, [Syne](https://fonts.google.com/specimen/Syne) for headings and the name display.
-- **Layout:** CSS Grid throughout — two-column about/contact, three-column stack grid, two-column projects grid. Collapses to single column below 768 px.
-- **Language toggle:** EN / ES with `body.lang-en .es { display: none }` — no JS framework needed, one function call swaps the class.
+Redesigned in October 2026.
+
+- **Palette:** carbon `#0B0B0B` substrate, phosphor-white ink `#EAEAEA`, aviation red `#FF2A2A` as the only accent. Terminal green `#4AF626` is used for exactly one element (the "open to internships" status light).
+- **Light theme:** Swiss-print variant: unbleached paper `#EAE8E3`, carbon ink, hazard red `#E61919`.
+- **Typography:** [Archivo](https://fonts.google.com/specimen/Archivo) 900 for uppercase macro headings (tight tracking, ~0.84 leading), [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for every piece of metadata, Archivo 400–600 for body copy.
+- **Geometry:** `border-radius: 0` everywhere. Compartments are drawn with the `gap: 2px` + ink-coloured parent trick, so dividing lines are pixel-exact without per-cell borders.
+- **Texture:** fixed blueprint grid, CRT scanlines and an SVG noise layer.
+- **Motion:** stepped (`steps()`) timing everywhere, so things move like machinery rather than easing.
+- **Language toggle:** EN / ES via `html.lang-en .es { display: none }`, persisted in `localStorage`.
 
 ---
 
@@ -33,51 +38,32 @@ No frameworks. No bundler. No npm. The entire site is **one HTML file + one SVG 
 
 | # | Section | What's in it |
 |---|---|---|
-| — | Hero | Name, tagline, skill badges, terminal widget, CTA buttons |
-| 01 | About | Bio paragraphs, 4-stat grid, language proficiency bars |
-| 02 | Experience | Timeline — Base Aérea de Torrejón + Humanitas Bilingual School |
-| 03 | Education | Timeline — UAH Computer Engineering + Bachillerato |
-| 04 | Stack | 3-column skill bar grid (Languages / Tools / Concepts) |
-| 05 | Projects | 2-column project cards with highlights and GitHub links |
-| 06 | Interests | 3-column interest cards |
-| 07 | Contact | Email, LinkedIn, GitHub, CV downloads, phone |
+| — | Intro | Boot sequence: terminal log, 000→100 % counter, segmented load bar, slatted exit |
+| — | Hero | Name block, telemetry metadata row, typed terminal, `<dl>` readout, CTAs, barcode |
+| 01 | About | Bio, 4-stat compartment grid, segmented language meters |
+| 02 | Stack | Skill radar (canvas) + 3 columns of segmented meters |
+| — | Statement | Scroll-scrubbed manifesto line |
+| 03 | Projects | Gapless 6-column grid, filters, cards invert on hover |
+| 04 | Interests | 6 compartment cards with square icon plates |
+| 05 | Experience | Log-style entries (`JOB-01 // STATUS: ACTIVE`) with numbered bullets |
+| 06 | Education | "Currently" banner, degree + 2026–27 enrolment (12 subjects, 78 ECTS), Fortinet NSE 1–3, Bachillerato, ESO, Cumlaude, extension course, English C1+ |
+| 07 | Contact | Oversized CTA headline + link table (email, GitHub, LinkedIn, CVs, phone) |
 
 ---
 
 ## Interactive features
 
-All interactions are vanilla JS, implemented as isolated IIFEs inside the inline `<script>` block.
+All vanilla JS, isolated in one IIFE inside the inline `<script>`.
 
-### Scroll
-- **Progress bar** — 2 px teal line at the very top of the viewport, width tied to `scrollY / (scrollHeight - innerHeight)`.
-- **Back-to-top button** — Fixed bottom-right, appears after scrolling 400 px, smooth-scrolls to top.
-- **Fade-in on scroll** — `IntersectionObserver` adds `.visible` to `.fade-in` elements as they enter the viewport.
-
-### Navigation
-- **Active link highlight** — `scroll` listener finds the current section and colours the matching nav link teal.
-- **Underline slide** — CSS `::after` pseudo-element on `.nav-links a` slides from `width: 0` to `width: 100%` on hover.
-- **Mobile hamburger** — CSS-animated three-bar icon opens a full-width drawer below the nav.
-
-### Hero
-- **Particle canvas** — `<canvas>` injected as the first child of `#hero`. 55 teal dots drift at random velocities, wrapping at edges, rendered with `requestAnimationFrame`.
-- **Terminal typewriter** — On load, the command and each output line type themselves out at 22 ms per character using `setInterval`.
-
-### Cards
-- **3D tilt** — `mousemove` on `.proj-card` and `.interest-card` computes `rotateX` / `rotateY` from cursor position relative to card centre, applied as a `perspective(600px)` transform.
-- **Top-edge reveal** — CSS `::before` pseudo-element on `.proj-card` slides from `scaleX(0)` to `scaleX(1)` on hover.
-
-### Buttons
-- **Ripple** — `click` on `.btn` appends a `<span class="ripple">` at cursor position, animates `scale(0)` → `scale(140)` + `opacity 0`, then removes itself on `animationend`.
-
-### Cursor
-- **Glow** — A `position: fixed` radial-gradient `div` follows the cursor with lerp smoothing (`gx += (mx - gx) * 0.12` per frame). Grows to 80 px on hover over interactive elements.
-
-### About section
-- **Stat counters** — `IntersectionObserver` at 50 % threshold triggers a 1400 ms cubic ease-out counter animation on each `.stat-n` element.
-- **Animated language bars** — Bars start at `width: 0%`; `IntersectionObserver` at 25 % threshold restores each bar's target width with a `70 ms` stagger.
-
-### Stack section
-- **Animated skill bars** — Same mechanism as language bars, watching the `#stack` section.
+- **Boot intro** — plays on load (~2.5 s). Skip with click, `Esc`, `Enter` or `Space`. Skipped entirely under `prefers-reduced-motion`, and a CSS failsafe hides it after 8 s if JS ever fails.
+- **Scroll engine** — one rAF-throttled passive listener drives the red progress bar, the active nav link, the back-to-top button and the word-by-word statement scrub.
+- **Shutter reveals** — `IntersectionObserver` retracts a solid mask over each block in 6 mechanical steps.
+- **Hero canvas** — square "pixel" particles; paused when the hero is off-screen.
+- **Terminal typewriter** — starts after the intro finishes.
+- **Counters and meters** — stepped counters, segmented meters that fill on first view.
+- **Skill radar** — canvas, redraws on theme/language change.
+- **Project filters** — Java / Python / SQL / C / Web; the grid re-flows to stay gapless.
+- **Keyboard** — `?` shortcuts, `g` + letter to jump to a section, `t` theme, `l` language. Plus a Konami code.
 
 ---
 
@@ -85,82 +71,38 @@ All interactions are vanilla JS, implemented as isolated IIFEs inside the inline
 
 ```
 Danix29.github.io/
-├── index.html   ← entire site (HTML + CSS + JS, ~970 lines)
-└── favicon.svg  ← teal "DN" monogram
+├── index.html   ← entire site (HTML + CSS + JS)
+├── favicon.svg  ← black/white "DN" plate with a red band
+└── README.md
 ```
-
----
-
-## Personal projects
-
-Side projects outside of university coursework, hosted in separate repositories.
-
-| Project | Description | Status |
-|---|---|---|
-| [english-project](https://github.com/Danix29/english-project) | SBI English Learning Platform — static web built before university to help classmates host their high-school English project. HTML · CSS · Vanilla JS. | ✅ Live |
-| algo-visualizer | Step-by-step visual tracer for sorting and graph algorithms. Planned: bubble / merge / quick sort, BFS/DFS, rendered on canvas. | 🚧 In progress |
-| c-utils | Small collection of utility programs written in C — file stats, string tools, basic data structures. Practice ground for low-level work outside of coursework. | 🚧 In progress |
-| db-bench | PostgreSQL benchmark scripts and index analysis notebooks from personal experimentation. B-Tree vs Hash, partition strategies, EXPLAIN ANALYZE output comparison. | 🚧 In progress |
 
 ---
 
 ## Meta / SEO
 
-- `<meta name="description">` for search engines.
-- Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`) for link previews on Slack, Discord, LinkedIn, etc.
-- Twitter Card tags for X/Twitter unfurls.
-- OG image generated dynamically via [capsule-render](https://github.com/kyechan99/capsule-render).
-
----
-
-## Fonts loading strategy
-
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700
-            &family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-```
-
-`display=swap` ensures text is visible with a system font while the custom fonts load — no invisible text flash.
-
----
-
-## Local development
-
-No build step required — just open the file:
-
-```bash
-# Option 1 — direct file
-open index.html          # macOS
-start index.html         # Windows
-
-# Option 2 — local server (avoids any file:// quirks)
-python -m http.server 8080
-# then visit http://localhost:8080
-```
+- `<meta name="description">`, Open Graph and Twitter Card tags.
+- OG image generated with [capsule-render](https://github.com/kyechan99/capsule-render) in the site palette.
 
 ---
 
 ## Analytics
 
-Two analytics tools run in the `<head>` to track visitors without breaking the no-framework philosophy.
-
 | Tool | What it tracks | Dashboard |
 |---|---|---|
-| [GoatCounter](https://www.goatcounter.com) | Page views, unique visitors, country, browser, OS, referrer (LinkedIn, GitHub, Google…) — no cookies, GDPR-friendly | [danieldelnogal.goatcounter.com](https://danieldelnogal.goatcounter.com) |
-| [Microsoft Clarity](https://clarity.microsoft.com) | Session recordings, heatmaps, scroll depth, click maps — shows exactly how visitors interact with the page | [clarity.microsoft.com/projects/view/x1daajnt6w](https://clarity.microsoft.com/projects/view/x1daajnt6w) |
+| [GoatCounter](https://www.goatcounter.com) | Page views, referrers, country, browser — no cookies, GDPR-friendly | [danieldelnogal.goatcounter.com](https://danieldelnogal.goatcounter.com) |
+| [Microsoft Clarity](https://clarity.microsoft.com) | Session recordings, heatmaps, scroll depth | [clarity.microsoft.com/projects/view/x1daajnt6w](https://clarity.microsoft.com/projects/view/x1daajnt6w) |
 
-Both scripts load asynchronously and have no impact on page performance.
+Both load asynchronously.
 
 ---
 
-## Deployment
-
-Pushes to `main` deploy automatically via GitHub Pages. No CI/CD configuration needed — GitHub detects the repo name pattern `<username>.github.io` and serves it automatically.
+## Local development
 
 ```bash
-git add index.html
-git commit -m "your message"
-git push origin main
-# live in ~1–2 minutes at https://danix29.github.io
+python -m http.server 8080
+# then visit http://localhost:8080
 ```
+
+## Deployment
+
+Pushes to `main` deploy automatically via GitHub Pages (live in ~1–2 minutes).
