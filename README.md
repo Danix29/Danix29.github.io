@@ -92,7 +92,7 @@ Every visit opens with a ~2.5 s boot: a terminal log, a stepped counter from `00
 </tr>
 <tr>
 <td width="50%"><img src="assets/section-contact.png" alt="Contact: oversized headline and link table"/><br><sub><b>07 · Contact</b> · oversized CTA + link table</sub></td>
-<td width="50%" align="center"><img src="assets/mobile.png" alt="Mobile view of the hero" width="58%"/><br><sub><b>Mobile</b> · single column below 768 px, no horizontal scroll</sub></td>
+<td width="50%" align="center"><img src="assets/mobile.png" alt="Mobile view of the hero" width="40%"/><br><sub><b>Mobile</b> · single column below 768 px, no horizontal scroll</sub></td>
 </tr>
 </table>
 
