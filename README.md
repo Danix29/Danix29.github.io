@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B0B0B,100:FF2A2A&height=210&section=header&text=danix29.github.io&fontSize=50&fontColor=EAEAEA&fontAlignY=38&desc=Industrial%20brutalism%20%C2%B7%20one%20HTML%20file%20%C2%B7%20zero%20dependencies&descAlignY=60&descColor=EAEAEA&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B0B0B,100:FF2A2A&height=210&section=header&text=danix29.github.io&fontSize=50&fontColor=EAEAEA&fontAlignY=38&desc=Industrial%20brutalism%20%C2%B7%20one%20HTML%20file%20%C2%B7%20zero%20dependencies&descAlignY=60&descColor=EAEAEA" width="100%"/>
 
 <div align="center">
 
