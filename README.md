@@ -3,7 +3,6 @@
 <div align="center">
 
 [![Live](https://img.shields.io/badge/LIVE-danix29.github.io-FF2A2A?style=for-the-badge&labelColor=161616&logo=googlechrome&logoColor=white)](https://danix29.github.io)
-[![Skins](https://img.shields.io/badge/9_DESIGN_SKILLS-%2Fskins-161616?style=for-the-badge&labelColor=FF2A2A)](https://danix29.github.io/skins/)
 [![Deploy](https://github.com/Danix29/Danix29.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Danix29/Danix29.github.io/actions/workflows/pages/pages-build-deployment)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
@@ -115,18 +114,6 @@ Also on the page: **01 · About** (bio, stats, language meters), **04 · Interes
 
 ---
 
-## ⧉ Nine design skills, one portfolio
-
-<div align="center">
-
-<a href="https://danix29.github.io/skins/"><img src="assets/skins-mosaic.jpg" alt="The portfolio rendered with nine design skills" width="100%"/></a>
-
-</div>
-
-The same content rendered nine times, each page following the rules of a different design skill: **taste-skill**, **taste-skill-v1**, **gpt-tasteskill** (real GSAP ScrollTrigger), **soft-skill**, **minimalist-skill**, **brutalist-skill** (this site), **stitch-skill** (+ its [`DESIGN.md`](skins/stitch-skill-DESIGN.md)), **apple-design** (real spring physics) and **emil-design-eng**. They carry no analytics and are `noindex`. → [danix29.github.io/skins](https://danix29.github.io/skins/)
-
----
-
 <details>
 <summary><b>⚙ Under the hood</b></summary>
 <br>
@@ -143,7 +130,6 @@ The same content rendered nine times, each page following the rules of a differe
 Danix29.github.io/
 ├── index.html        ← the whole site
 ├── favicon.svg       ← black/white "DN" plate with a red band
-├── skins/            ← nine design-skill variants + gallery + DESIGN.md
 ├── assets/           ← screenshots used in this README
 └── README.md
 ```
