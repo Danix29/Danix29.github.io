@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Privacidad · rclone (uso personal)</title>
+<style>
+  :root { --bg:#111; --fg:#ece9e4; --muted:#9a958e; --red:#e5322d; --line:#2a2a2a; }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#f4f1ec; --fg:#161616; --muted:#5d5a55; --line:#d6d1c9; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:18px/1.6 ui-monospace, "SF Mono", Consolas, monospace; }
+  main { max-width:720px; margin:0 auto; padding:48px 20px 80px; }
+  h1 { font-size:clamp(28px,6vw,44px); line-height:1.1; margin:0 0 8px; text-transform:uppercase; letter-spacing:-.02em; }
+  h1 span { color:var(--red); }
+  h2 { font-size:20px; margin:40px 0 8px; padding-top:16px; border-top:2px solid var(--line); text-transform:uppercase; }
+  p, li { margin:0 0 12px; }
+  ul { padding-left:20px; }
+  .meta { color:var(--muted); font-size:15px; }
+  a { color:var(--red); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Política de <span>privacidad</span></h1>
+  <p class="meta">Aplicación «rclone» · uso personal · última actualización: 10 de noviembre de 2026</p>
+
+  <h2>Qué es</h2>
+  <p>«rclone» es una aplicación OAuth de uso estrictamente personal. La utiliza únicamente su creador, Daniel Del Nogal (<a href="https://github.com/Danix29">github.com/Danix29</a>), para gestionar sus propias cuentas de Google Drive desde su ordenador con la herramienta de código abierto rclone.</p>
+
+  <h2>Datos a los que accede</h2>
+  <p>Solo accede a los archivos de las cuentas de Google Drive que su propietario autoriza expresamente. No accede a ninguna otra cuenta ni a datos de terceros.</p>
+
+  <h2>Qué se almacena y dónde</h2>
+  <ul>
+    <li>Los tokens de autorización se guardan únicamente en el ordenador del propietario.</li>
+    <li>Los archivos se transfieren directamente entre el ordenador y Google Drive. No existe ningún servidor intermedio.</li>
+    <li>La aplicación no recopila, vende, comparte ni transfiere datos a terceros.</li>
+  </ul>
+
+  <h2>Revocar el acceso</h2>
+  <p>El acceso puede retirarse en cualquier momento desde <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+
+  <h2>Privacy policy (English)</h2>
+  <p>"rclone" is a personal-use OAuth application, used only by its creator to manage his own Google Drive accounts from his own computer with the open-source rclone tool. It accesses only the Drive accounts the owner explicitly authorises. Authorisation tokens are stored only on the owner's computer, files move directly between that computer and Google Drive with no intermediary server, and no data is collected, sold, shared or transferred to third parties. Access can be revoked at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+</main>
+</body>
+</html>
